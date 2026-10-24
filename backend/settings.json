@@ -1,0 +1,21 @@
+{
+  "model_provider": "ollama",
+  "model_name": "qwen3.5:9b-q4_K_M",
+  "model_endpoint": "http://127.0.0.1:11434",
+  "model_context_tokens": 12288,
+  "api_key_env_var": "API_KEY",
+  "api_endpoint_env_var": "API_ENDPOINT",
+  "api_key_required": true,
+  "input_folder": "inbox",
+  "archive_folder": "archive",
+  "archive_retention_runs": 7,
+  "consume_folder": "",
+  "consume_shortcut": "paperless_consume.lnk",
+  "max_text_characters": 24000,
+  "remove_exact_duplicates": true,
+  "auto_move_to_consume": true,
+  "confirm_before_send": false,
+  "confirm_before_rename": false,
+  "confirm_before_move": false,
+  "confirm_before_deduplicate": false
+}

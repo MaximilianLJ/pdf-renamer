@@ -1,0 +1,29 @@
+# Local PDFs and the inbox
+inbox/*
+!inbox/.gitkeep
+*.pdf
+
+# Local batch history
+archive/*.jsonl
+
+# Credentials and workstation-specific destination
+.env
+.env.*
+!.env.example
+*_API_KEY.env
+*.lnk
+
+# Generated Python/runtime files
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Local Codex/editor metadata
+.agents/
+.codex/
+.vscode/
+.idea/

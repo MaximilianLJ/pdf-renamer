@@ -34,14 +34,7 @@ if errorlevel 1 (
   if errorlevel 1 goto setup_failed
 )
 
-".venv\Scripts\python.exe" backend\bootstrap.py
-if errorlevel 1 (
-  echo.
-  echo Model setup did not complete. The naming app will still start; model naming may fail, but configured duplicate cleanup can run.
-  echo.
-)
-
-".venv\Scripts\python.exe" backend\pdf_namer.py --run
+".venv\Scripts\python.exe" backend\launcher.py
 set APP_EXIT_CODE=%ERRORLEVEL%
 pause
 exit /b %APP_EXIT_CODE%

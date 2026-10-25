@@ -25,5 +25,6 @@ This document records the PDF naming workflow's scope and file-operation boundar
 ## Provider behavior
 
 - Local Ollama is the default provider and must use a loopback address.
+- The one-click launcher starts Ollama only if its API is not already available. It must keep its own server process alive for the naming run and close only that process afterward; a pre-existing server is left running.
 - Optional API mode uses an OpenAI-compatible chat-completions endpoint. Set the API key environment-variable name and whether the provider requires a key in backend/settings.json.
 - Never print or log API key values. Do not store API keys in settings, example files, or Git history.

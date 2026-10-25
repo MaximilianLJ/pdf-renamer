@@ -1224,13 +1224,13 @@ def run_naming(
     apply_plan(folder, plan, duplicates, destination, config, archive_folder)
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     """Run the interactive interface or the configured one-click batch."""
     parser = argparse.ArgumentParser(description="Name PDFs using the configured local or hosted model.")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--run", action="store_true", help="run the configured inbox with the configured model")
     mode.add_argument("--undo", action="store_true", help="undo the latest batch in the configured inbox")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     logging.getLogger("pypdf").setLevel(logging.ERROR)
     print("PDF Naming Assistant")

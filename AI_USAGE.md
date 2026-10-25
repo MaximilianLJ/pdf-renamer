@@ -4,7 +4,7 @@ The PDF renamer makes one model request per eligible PDF to suggest naming metad
 
 ## Local model (default)
 
-With model_provider set to ollama, extracted text is processed by the configured Ollama model on this computer. The app accepts only a loopback Ollama endpoint. The included default is qwen3.5:9b-q4_K_M; it is an example starting point, not a benchmark winner. Text is sent to the Ollama server running locally and is not uploaded to the Ollama model library. Model quality and response formatting vary, so results may differ when another model is selected.
+With model_provider set to ollama, extracted text is processed by the configured Ollama model on this computer. The app accepts only a loopback Ollama endpoint. The included default is qwen3.5:9b-q4_K_M; it is an example starting point, not a benchmark winner. The one-click launcher starts Ollama only when needed and closes only the server process it started after the run; a pre-existing Ollama server is left running. Text is sent to the Ollama server running locally and is not uploaded to the Ollama model library. Model quality and response formatting vary, so results may differ when another model is selected.
 
 ## OpenAI-compatible API (optional)
 

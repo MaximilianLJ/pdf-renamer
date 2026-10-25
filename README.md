@@ -11,6 +11,8 @@ A one-click Windows utility that extracts PDF text, asks a configured AI model t
 
 The launcher creates a project-local .venv and installs the pinned dependencies there. This keeps the app's Python libraries separate from Python packages installed elsewhere on the computer.
 
+The launcher starts the local Ollama server only when it is not already answering requests. It keeps a server it started alive for the naming run, then closes only that server. An Ollama server that was already running before the launcher started is left alone.
+
 With model_provider set to ollama, the first run checks for Ollama and the configured model. If Ollama is missing, choosing a model offers to install Ollama through Windows Package Manager; if that is unavailable, the launcher opens Ollama's official Windows download page. If the configured local model is missing, choose the recommended Qwen3.5 9B Q4 model, enter another Ollama model name, or skip installation. Hosted API mode skips Ollama setup.
 
 The [current Ollama model listing](https://ollama.com/library/qwen3.5/tags) shows a download of about 6.6 GB. For this model at the default 12,288-token context, roughly 10 GB of free VRAM is a planning estimate, not a minimum or guarantee. Actual memory use varies with the Ollama version, model, context, and other GPU workloads. [Ollama can share work between GPU and system memory](https://docs.ollama.com/faq), but this may be slower and does not guarantee that a model will load or run acceptably. Model results vary, and this workflow has not been benchmarked across models.
@@ -24,6 +26,7 @@ After setup, the app processes PDFs from the configured inbox, shows a preview, 
     ├── archive/                       Undo history; local JSONL files ignored by Git
     ├── backend/
     │   ├── bootstrap.py               First-run Ollama and model setup
+    │   ├── launcher.py                Owns setup, naming, and local-server lifecycle
     │   ├── pdf_namer.py               Extraction, model requests, and file operations
     │   └── settings.json              Human-editable provider and workflow settings
     ├── docs/
